@@ -1,0 +1,60 @@
+<!-- FirstName LastName
+Email
+Mobile 
+Gender
+Address
+Hobbies(checkbox)
+Submit Buttton -->
+
+<div class="wrapper">
+  <form class="k-form">
+    <h1>Employee Details</h1>
+    <label class="k-form-field">
+      <span>Name</span>
+       <kendo-textbox placeholder="FirstName"></kendo-textbox>
+    </label>
+    <label class="k-form-field">
+      <span>Lastname</span>
+      <kendo-textbox placeholder="LastName"></kendo-textbox>
+    </label>
+    <label class="k-form-field">
+      <span>Email</span>
+      <kendo-textbox placeholder="Email"></kendo-textbox>
+    </label>
+
+    <label class="k-form-field">
+      <span>Mobile</span>
+      <kendo-textbox placeholder="Mobile"></kendo-textbox>
+    </label>
+
+    <div class="k-form-field row">
+      <span>Gender</span>
+      <kendo-label [for]="male" text="Male"></kendo-label>
+      <input type="radio" name="gender" #male kendoRadioButton/>
+      <kendo-label [for]="female" text="Female"></kendo-label>
+      <input type="radio" name="gender" #female kendoRadioButton/>
+    </div>
+    <label class="k-form-field">
+      <span>Street</span>
+      <kendo-textbox placeholder="Street"></kendo-textbox>
+    </label>
+
+    <label class="k-form-field">
+      <span>City</span>
+      <kendo-textbox placeholder="City"></kendo-textbox>
+    </label>
+
+    <label class="k-form-field">
+      <span>State</span>
+      <kendo-textbox placeholder="State"></kendo-textbox>
+    </label>
+
+    <label class="k-form-field btn__contianer">
+        <button kendoButton type="submit" (click)="onSubmit($event)" [primary]="true" class="submit__btn">SUBMIT</button>
+    </label>
+    <kendo-dialog title="Success" *ngIf="isDialogOpened" [width]="450">
+      <p style="font-size: 16px;">Submitted Succesfully</p>
+      <button kendoButton [primary]="true" (click)="isDialogOpened=false">Close</button>
+    </kendo-dialog>
+  </form>
+</div>
