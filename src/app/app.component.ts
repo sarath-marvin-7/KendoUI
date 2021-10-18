@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Kendo-UI';
 
-  isDialogOpened:boolean = true;
+  isDialogOpened:boolean = false;
 
   onSubmit(evt :any){
     evt.preventDefault();

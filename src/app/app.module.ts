@@ -7,12 +7,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+import { LayoutComponent } from './layout/layout.component';
+import { ContentComponent } from './content/content.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { ListViewModule } from '@progress/kendo-angular-listview';
+import { ContactComponent } from './contact/contact.component';
+
+
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LayoutComponent,
+    ContentComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +32,10 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
     BrowserAnimationsModule,
     LabelModule,
     ButtonsModule,
-    DialogsModule
+    DialogsModule,
+    LayoutModule,
+    GridModule,
+    ListViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,140 @@
+<div id="Inbox" *ngIf="selectedItem === 'Users'">
+    <!-- <ul class="inboxList">
+      <li>
+        <h6>Monday meeting</h6>
+        <p>
+          Hi Tom, Since Monday I'll be out of office, I'm rescheduling the
+          meeting for Tuesday.
+        </p>
+      </li>
+      <li>
+        <h6>I'm sorry, Tom</h6>
+        <p>
+          Hi Tom, my aunt comes for a visit this Saturday, so I can't come
+          back to St. Pete...
+        </p>
+      </li>
+    </ul> -->
+
+    <kendo-grid
+      [kendoGridBinding]="gridView"
+      kendoGridSelectBy="id"
+      [selectedKeys]="mySelection"
+      [pageSize]="20"
+      [pageable]="true"
+      [sortable]="true"
+      [reorderable]="true"
+      [resizable]="true"
+      [height]="500"
+      [columnMenu]="{ filter: true }"
+    >
+      <kendo-grid-checkbox-column
+        [width]="30"
+        [headerClass]="{ 'text-center': true }"
+        [class]="{ 'text-center': true }"
+        [resizable]="false"
+        [columnMenu]="false"
+      ></kendo-grid-checkbox-column>
+      <kendo-grid-column-group title="Employee" [columnMenu]="false">
+        <kendo-grid-column field="full_name" title="Contact Name" [width]="180" [columnMenu]="false">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <div class="customer-name">{{ dataItem.full_name }}</div>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="job_title" title="Job Title" [width]="180" [columnMenu]="false">
+        </kendo-grid-column>
+        <kendo-grid-column
+          field="is_online"
+          title="Status"
+          [width]="100"
+          [class]="{ 'text-center': true }"
+          [resizable]="false"
+          filter="boolean"
+          [columnMenu]="false"
+        >
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <span
+              *ngIf="dataItem.is_online === true"
+              class="badge badge-success"
+              >Online</span
+            >
+            <span
+              *ngIf="dataItem.is_online === false"
+              class="badge badge-danger"
+              >Offline</span
+            >
+          </ng-template>
+        </kendo-grid-column>
+
+        <kendo-grid-column
+        field="address"
+        title="Address"
+        [width]="100"
+        [class]="{ 'text-center': true }"
+        [resizable]="false"
+        filter="boolean"
+        [columnMenu]="false"
+      >
+      </kendo-grid-column>
+      </kendo-grid-column-group>
+      </kendo-grid>
+      </div>
+
+      <div id="Notifications" *ngIf="selectedItem === 'Messages'">
+
+      <h2>Kendo ListView Coming Up</h2>
+      <kendo-listview
+      [data]="contacts"
+      containerClass="k-d-flex k-flex-col k-flex-nowrap"
+    >
+      <ng-template kendoListViewHeaderTemplate>
+        <div class="header">Messages</div>
+      </ng-template>
+      <ng-template
+        kendoListViewItemTemplate
+        let-dataItem="dataItem"
+        let-isFirst="isFirst"
+      >
+        <app-contact
+          class="contact"
+          [contact]="dataItem"
+          [borderTop]="!isFirst"
+        >
+        </app-contact>
+      </ng-template>
+      <!-- <ng-template kendoListViewFooterTemplate>
+        <div class="footer">25 unread messages in total</div>
+      </ng-template> -->
+    </kendo-listview>
+    </div>
+
+    <div id="Calendar" *ngIf="selectedItem === 'Bookmarks'">
+      <ul>
+        <li>
+          <h6>11/5 Monday</h6>
+          <p>Martha Birthday</p>
+        </li>
+        <li>
+          <h6>15/6 Sunday</h6>
+          <p>Job interview for internal position</p>
+        </li>
+      </ul>
+    </div>
+
+    <div id="Attachments" *ngIf="selectedItem === 'Files'">
+      <ul>
+        <li>Build enterprise apps</li>
+        <li>Fw: Regarding Multiline textbox</li>
+        <li>Away next week</li>
+        <li>Fw: Your Costume is ready</li>
+        <li>Update completed</li>
+      </ul>
+    </div>
+
+    <div id="Favourites" *ngIf="selectedItem === 'Attachments'">
+      <ul>
+        <li>70% Discount!</li>
+        <li>90% Discount!</li>
+        <li>One time offer!</li>
+      </ul>
+    </div>
